@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieActivity">
         <activity
+            android:name=".PosterActiviy"
+            android:exported="true" />
+        <activity
             android:name=".SecondaActivity"
             android:exported="true" />
         <activity

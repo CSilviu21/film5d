@@ -2,6 +2,7 @@ package itts.volta.quintocinf.movieactivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -24,17 +25,23 @@ public class MainActivity extends AppCompatActivity {
         lvFilm = (ListView)findViewById(R.id.lvFilm);
         ArrayAdapter<String> aaFilm = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,Film);
         lvFilm.setAdapter(aaFilm);
-
-        lvFilm.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        lvFilm.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
+
+            public void onItemClick(AdapterView<?> parent, View view, int i, long id)
+            {
                 String titolo= (String) lvFilm.getItemAtPosition(i);
                 Log.d("errori nostri", "posizione: "+i);
-                Toast.makeText(getApplicationContext(),titolo,Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(),titolo,Toast.LENGTH_LONG).show();
+                Intent posterActivity= new Intent(getApplicationContext(),PosterActiviy.class);
+                        posterActivity.putExtra("tit", titolo);
+                startActivity(posterActivity);
             }
         });
     }
 }
+
 
        /* Button btnEsci = (Button)findViewById(R.id.btnEsci);
         btnEsci.setOnClickListener(new View.OnClickListener()
